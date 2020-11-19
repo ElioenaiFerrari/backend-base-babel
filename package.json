@@ -22,6 +22,7 @@
   },
   "scripts": {
     "dev": "nodemon -w . -w .env --exec babel-node src/main.js",
-    "build": "babel src -s -d build"
+    "build": "babel src -s -d build",
+    "deploy": "node build/main.js"
   }
 }
