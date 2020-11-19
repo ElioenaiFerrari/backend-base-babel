@@ -1,0 +1,27 @@
+{
+  "name": "idev_backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.6",
+    "@babel/plugin-transform-spread": "^7.12.1",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "consign": "^0.1.6",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "dev": "nodemon -w . -w .env --exec babel-node src/main.js",
+    "build": "babel src -s -d build"
+  }
+}

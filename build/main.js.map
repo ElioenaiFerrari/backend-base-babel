@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/main.js"],"names":["App","listen","process","env","PORT"],"mappings":";;;;AAAA;;AAEAA,gBAAIC,MAAJ,CAAWC,OAAO,CAACC,GAAR,CAAYC,IAAvB","sourcesContent":["import App from '@/config/app';\n\nApp.listen(process.env.PORT);\n"],"file":"main.js"}
