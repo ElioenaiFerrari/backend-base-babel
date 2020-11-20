@@ -14,8 +14,6 @@ class Dev extends Model {
       }
     );
   }
-
-  static associate(models) {}
 }
 
 export default Dev;
