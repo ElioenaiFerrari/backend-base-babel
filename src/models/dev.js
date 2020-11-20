@@ -1,4 +1,4 @@
-import { DataType, DataTypes, Model } from 'sequelize';
+import { DataTypes, Model } from 'sequelize';
 
 class Dev extends Model {
   static init(sequelize) {
@@ -14,6 +14,8 @@ class Dev extends Model {
       }
     );
   }
+
+  static associate(models) {}
 }
 
 export default Dev;
