@@ -4,13 +4,13 @@ import model from './model';
 
 const Injector = {
   injectDepsInApp(common) {
-    const execFunc = (App) => (fn) => fn.default(App);
+    const insertInApp = (App) => (fn) => fn.default(App);
 
-    return (App) => R.pipe(R.values, R.map(execFunc(App))(common));
+    return (App) => R.pipe(R.values, R.map(insertInApp(App))(common));
   },
 
   injectModelsInConnection(Models) {
-    function execFunc(conn) {
+    function modelConn(conn) {
       return function (Model) {
         Model.default.init(conn);
 
@@ -22,7 +22,7 @@ const Injector = {
       };
     }
 
-    return (conn) => R.pipe(R.map(execFunc(conn)))(Models);
+    return (conn) => R.pipe(R.map(modelConn(conn)))(Models);
   },
 };
 
