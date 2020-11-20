@@ -1,6 +1,5 @@
 import connection from '@/database';
 import * as R from 'ramda';
-import model from './model';
 
 const Injector = {
   injectDepsInApp(common) {
