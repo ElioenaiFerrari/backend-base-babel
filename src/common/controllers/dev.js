@@ -22,4 +22,47 @@ async function index(req, res) {
   }
 }
 
-export default { store, index };
+/** @param {import('express').Request} req @param {import('express').Response} res*/
+async function show(req, res) {
+  try {
+    const { id } = req.params;
+
+    const dev = await Dev.findByPk(id);
+
+    return res.status(200).json(dev);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+}
+
+/** @param {import('express').Request} req @param {import('express').Response} res*/
+async function update(req, res) {
+  try {
+    const { id } = req.params;
+
+    const dev = await Dev.findByPk(id);
+
+    await dev.update(req.body);
+
+    return res.status(200).json(dev);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+}
+
+/** @param {import('express').Request} req @param {import('express').Response} res*/
+async function destroy(req, res) {
+  try {
+    const { id } = req.params;
+
+    const dev = await Dev.findByPk(id);
+
+    await dev.destroy();
+
+    return res.sendStatus(200);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+}
+
+export default { store, index, show, update, destroy };
