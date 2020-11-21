@@ -2,7 +2,7 @@ import '@/database';
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import Router from '@/common/router';
+import Router from '@/router';
 
 const App = express();
 

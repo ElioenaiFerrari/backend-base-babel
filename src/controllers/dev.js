@@ -1,4 +1,4 @@
-import Dev from '@/common/models/dev';
+import Dev from '@/models/dev';
 
 /** @param {import('express').Request} req @param {import('express').Response} res*/
 async function store(req, res) {

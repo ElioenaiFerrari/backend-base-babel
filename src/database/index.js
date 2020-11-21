@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import Sequelize from 'sequelize';
 import dbConfig from '@/config/db';
-import Model from '@/common/model';
+import Model from '@/model';
 
 const { NODE_ENV } = process.env;
 

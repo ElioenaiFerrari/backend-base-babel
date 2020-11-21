@@ -1,10 +1,10 @@
 import * as R from 'ramda';
 
 const Injector = {
-  injectDepsInApp(common) {
+  injectDepsInApp(dep) {
     const insertInApp = (App) => (fn) => fn.default(App);
 
-    return (App) => R.pipe(R.values, R.map(insertInApp(App))(common));
+    return (App) => R.pipe(R.values, R.map(insertInApp(App))(dep));
   },
 
   injectModelsInConnection(Models) {
