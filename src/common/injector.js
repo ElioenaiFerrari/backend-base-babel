@@ -1,4 +1,3 @@
-import connection from '@/database';
 import * as R from 'ramda';
 
 const Injector = {
