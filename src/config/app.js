@@ -2,7 +2,7 @@ import '@/database';
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import Router from '@/router';
+import injections from '@/injections';
 
 const App = express();
 
@@ -11,6 +11,6 @@ App.use(express.json());
 App.use(express.urlencoded({ extended: false }));
 App.use(morgan('dev'));
 
-Router(App);
+injections.routerInjections(App);
 
 export default App;
