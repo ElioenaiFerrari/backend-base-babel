@@ -11,8 +11,8 @@ module.exports = {
     dialect: DB_DIALECT,
     define: {
       timestamps: true,
+      freezeTableName: true,
       underscored: true,
-      underscoredAll: true,
     },
   },
 };
