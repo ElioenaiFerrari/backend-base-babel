@@ -12,5 +12,6 @@ App.use(express.urlencoded({ extended: false }));
 App.use(morgan('dev'));
 
 Resources.routerInjections(App);
+Resources.middlewaresInjections(App);
 
 export default App;
