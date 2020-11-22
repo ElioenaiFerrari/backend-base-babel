@@ -6,12 +6,17 @@ import Jwt from 'jsonwebtoken';
 function authMiddleware(req, res, next) {
   try {
     const { APP_SECRET } = process.env;
-    const { authorization } = req.headers;
 
-    if (!authorization) throw new Error('unauthorized');
+    function hasAuthorization(headers) {
+      const { authorization } = headers;
+
+      if (!authorization) throw new Error('unauthorized');
+
+      return authorization;
+    }
 
     const decodeToken = R.curry(function (secret, token) {
-      return Jwt.verify(token, secret);
+      return Jwt.verify(token.toString(), secret);
     });
 
     function setCurrentDev(dev) {
@@ -23,12 +28,13 @@ function authMiddleware(req, res, next) {
     const pass = () => next();
 
     return R.pipe(
+      hasAuthorization,
       R.split(' '),
       R.takeLast(1),
       decodeToken(APP_SECRET),
       setCurrentDev,
       pass
-    )(authorization);
+    )(req.headers);
   } catch (error) {
     return res.status(401).json({ error: error.message });
   }
