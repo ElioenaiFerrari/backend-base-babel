@@ -8,19 +8,24 @@ const Injector = {
   },
 
   injectModelsInConnection(Models) {
-    function modelConn(conn) {
-      return function (Model) {
-        Model.default.init(conn);
+    const initModel = R.curry(function (conn, Model) {
+      Model.default.init(conn);
 
-        if (Model.default.associate) {
-          Model.default.associate(conn.models);
-        }
+      return Model;
+    });
 
-        return Model;
-      };
-    }
+    const associateModel = R.curry(function (conn, Model) {
+      if (Model.default.associate) {
+        Model.default.associate(conn.models);
+      }
+    });
 
-    return (conn) => R.pipe(R.map(modelConn(conn)))(Models);
+    return function (conn) {
+      return R.pipe(
+        R.map(initModel(conn)),
+        R.map(associateModel(conn))
+      )(Models);
+    };
   },
 };
 

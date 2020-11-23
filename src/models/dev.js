@@ -1,6 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
 import Bcrypt from 'bcryptjs';
-import dev from '@/controllers/dev';
 
 class Dev extends Model {
   static init(sequelize) {
@@ -25,6 +24,10 @@ class Dev extends Model {
         },
       }
     );
+  }
+
+  static associate({ Tech }) {
+    this.hasMany(Tech, { as: 'techs', foreignKey: 'dev_id' });
   }
 }
 
