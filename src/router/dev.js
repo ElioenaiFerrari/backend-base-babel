@@ -3,7 +3,6 @@ import DevController from '@/controllers/dev';
 
 const Router = express.Router();
 
-Router.post('/', DevController.store);
 Router.get('/', DevController.index);
 Router.get('/:id', DevController.show);
 Router.put('/:id', DevController.update);

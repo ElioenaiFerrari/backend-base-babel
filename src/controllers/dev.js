@@ -1,17 +1,6 @@
 import Dev from '@/models/dev';
 
 /** @param {import('express').Request} req @param {import('express').Response} res*/
-async function store(req, res) {
-  try {
-    const dev = await Dev.create(req.body);
-
-    return res.status(201).json(dev);
-  } catch (error) {
-    return res.status(400).json(error);
-  }
-}
-
-/** @param {import('express').Request} req @param {import('express').Response} res*/
 async function index(req, res) {
   try {
     const devs = await Dev.findAll({ where: req.query });
@@ -65,4 +54,4 @@ async function destroy(req, res) {
   }
 }
 
-export default { store, index, show, update, destroy };
+export default { index, show, update, destroy };

@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -30,6 +31,7 @@
   "scripts": {
     "dev": "nodemon -w . -w .env --exec babel-node src/main.js",
     "build": "rm -rf build && babel src -s -d build",
-    "deploy": "node build/main.js"
+    "deploy": "node build/main.js",
+    "reset-db": "sequelize db:drop && sequelize db:create && sequelize db:migrate"
   }
 }

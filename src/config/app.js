@@ -4,7 +4,7 @@ import Resources from '@/resources';
 
 const App = express();
 
-Resources.routerInjections(App);
 Resources.middlewaresInjections(App);
+Resources.routerInjections(App);
 
 export default App;
