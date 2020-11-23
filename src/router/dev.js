@@ -9,4 +9,4 @@ Router.put('/:id', DevController.update);
 Router.delete('/:id', DevController.destroy);
 
 /** @param { import('express').Express } App */
-export default (App) => App.use('/devs', Router);
+export default (App) => App.use('/app/devs', Router);

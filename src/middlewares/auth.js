@@ -19,7 +19,7 @@ function authMiddleware(req, res, next) {
     });
 
     function setCurrentDev(dev) {
-      req.auth.dev = dev;
+      req.currentDev = dev;
 
       return req;
     }
